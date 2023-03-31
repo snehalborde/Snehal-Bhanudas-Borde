@@ -1,0 +1,51 @@
+package metapercept;
+
+class A{
+	private int num1;
+	private int num2;
+	public A(int num1,int num2) {
+		this.num1=num1;
+		this.num2=num2;
+	}
+	
+	public int getNum1() {
+		return num1;
+	}
+	public int getNum2() {
+		return num2;
+	}	
+}
+class B{
+	private A a;
+	public B(A a) {
+		this.a=a;
+	}public int getLastDigit(int num) {
+		return num%10;
+	}
+	public int getLastDigitOfNum1() {
+		return getLastDigit(a.getNum1());
+	}
+	public int getLastDigitOfNum() {
+		return getLastDigit(a.getNum2());
+	}
+}
+class C{
+	private B b;
+	public C(B b) {
+		public int multiplyLastDigits() {
+			return b.getLastDigitOfNum1()*b.getLastDigitOfNum2;
+		}
+	}
+}
+public class Que_4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		A a=new A(123, 456);
+		B b=new B(a);
+		C c=new C(b);
+		int result=c.multiplyLastDigits();
+		System.out.println(result);
+	}
+
+}
