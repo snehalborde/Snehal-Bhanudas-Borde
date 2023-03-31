@@ -1,0 +1,25 @@
+package metapercept;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Email_validation {
+	public static final String EMAIL_REGEX= "^[\\w.-]+@[\\w.-]\\.[a-zA-Z]{2,}$";
+	public static void main(String[] args) {
+		String email="bordesnehal30@gmail.com";
+		boolean isValid=validateEmail(email);
+		
+		if(isValid) {
+			System.out.println("valid email id");
+		}else {
+			System.out.println("invalid email id");
+		}
+	}
+	public static boolean validateEmail(String email) {
+
+		Pattern obj=Pattern.compile(EMAIL_REGEX);
+		Matcher obj2=obj.matcher(email);
+		return obj2.matches();
+	}
+
+}
