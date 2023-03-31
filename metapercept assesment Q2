@@ -1,0 +1,35 @@
+package metapercept;
+
+public class Jagged_array {
+
+	public static int findMax(Object[] arr) {
+		// TODO Auto-generated method stub
+		int maxNum=Integer.MIN_VALUE;
+		for(Object element:arr) {
+			if(element instanceof Object[]) {
+			int nestedMax=findMax((Object[])element);
+			if(nestedMax > maxNum) {
+				maxNum=nestedMax;
+			}
+			}
+			else if(element instanceof Integer) {
+				int num=(int) element;
+				if (num>maxNum) {
+					maxNum=num;
+				}
+			}
+		}
+		return maxNum;
+	}
+	public static void main(String arg[]) {
+		Object[] input= {2,4,10, new Object[] {12,4, new Object[] {100,99},4} ,new Object[]{3,2,99 },0};
+		int maxNum=findMax(input);
+		System.out.println(maxNum);
+	}
+
+}
+
+
+
+
+
